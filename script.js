@@ -617,4 +617,8 @@ async function downloadAllPhotos() {
         showStatus('Blob download gagal. Membuka semua foto di tab baru...', 'info');
         for (let i = 0; i < photoUrls.length; i++) {
             downloadViaNewTab(getTikwmFullUrl(photoUrls[i]));
-  
+            await new Promise(r => setTimeout(r, 300));
+        }
+        showToast('Foto dibuka di tab baru. Long-press untuk save.', 'info');
+    }
+}
